@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Powersoft.pk — Pakistan's #1 Petrol Pump Software</title>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,700;9..144,900&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --green:#0f6e56;--green2:#1d9e75;--green3:#5DCAA5;--green-pale:#e1f5ee;
+  --gold:#ef9f27;--gold2:#fac775;--gold-pale:#faeeda;
+  --dark:#0d1a12;--dark2:#1a2e1f;--mid:#2d4a36;
+  --text:#1a2e1f;--muted:#5a7a64;--white:#fff;--light:#f4faf6;
+  --radius:14px;--radius-sm:8px;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Manrope',sans-serif;background:var(--white);color:var(--text);overflow-x:hidden;letter-spacing:-0.01em;}
+h1,h2,h3,h4{font-family:'Fraunces',Georgia,serif;font-weight:900;letter-spacing:-0.02em;line-height:1.15;}
+p{line-height:1.75;}
+
+
+/* NAV */
+nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,0.95);backdrop-filter:blur(12px);border-bottom:1px solid #e0ede6;padding:0 5%;height:68px;display:flex;align-items:center;justify-content:space-between;}
+.logo{font-family:'Fraunces',Georgia,serif;font-weight:800;font-size:1.4rem;color:var(--green);text-decoration:none;}
+.logo em{color:var(--gold);font-style:normal;}
+.nav-links{display:flex;gap:2rem;list-style:none;}
+.nav-links a{text-decoration:none;color:var(--muted);font-size:0.9rem;font-weight:500;transition:color .2s;}
+.nav-links a:hover{color:var(--green);}
+.nav-cta{background:var(--green);color:#fff;padding:0.55rem 1.4rem;border-radius:99px;text-decoration:none;font-size:0.875rem;font-weight:600;transition:background .2s,transform .15s;}
+.nav-cta:hover{background:var(--green2);transform:translateY(-1px);}
+
+/* HERO */
+.hero{background:var(--dark);min-height:92vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:6rem 5% 5rem;position:relative;overflow:hidden;}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(29,158,117,0.07) 1px,transparent 1px),linear-gradient(90deg,rgba(29,158,117,0.07) 1px,transparent 1px);background-size:48px 48px;}
+.hero-glow{position:absolute;top:20%;left:50%;transform:translateX(-50%);width:600px;height:300px;background:radial-gradient(ellipse,rgba(29,158,117,0.25) 0%,transparent 70%);pointer-events:none;}
+.hero-content{position:relative;z-index:2;max-width:800px;}
+.hero-pill{display:inline-flex;align-items:center;gap:8px;background:rgba(29,158,117,0.15);border:1px solid rgba(29,158,117,0.35);color:var(--green3);padding:.4rem 1.1rem;border-radius:99px;font-size:.8rem;font-weight:600;letter-spacing:.05em;margin-bottom:2rem;}
+.hero-pill span{width:7px;height:7px;border-radius:50%;background:var(--green3);display:inline-block;animation:blink 1.5s infinite;}
+@keyframes blink{0%,100%{opacity:1;}50%{opacity:.3;}}
+.hero h1{font-family:'Fraunces',Georgia,serif;font-size:clamp(2.4rem,5.5vw,4rem);font-weight:800;color:#fff;line-height:1.1;margin-bottom:1.5rem;}
+.hero h1 em{font-style:normal;color:var(--gold);}
+.hero p{font-size:1.1rem;color:rgba(255,255,255,0.6);max-width:560px;margin:0 auto 2.5rem;line-height:1.75;}
+.hero-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-bottom:4rem;}
+.btn-gold{background:var(--gold);color:#1a0e00;padding:.9rem 2.2rem;border-radius:99px;text-decoration:none;font-weight:700;font-size:.95rem;transition:transform .2s,box-shadow .2s;}
+.btn-gold:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(239,159,39,.35);}
+.btn-outline{background:transparent;color:rgba(255,255,255,.8);border:1.5px solid rgba(255,255,255,.25);padding:.9rem 2.2rem;border-radius:99px;text-decoration:none;font-weight:500;font-size:.95rem;transition:border-color .2s,color .2s;}
+.btn-outline:hover{border-color:rgba(255,255,255,.6);color:#fff;}
+.hero-stats{display:flex;gap:3rem;justify-content:center;flex-wrap:wrap;}
+.hstat{text-align:center;}
+.hstat strong{display:block;font-family:'Fraunces',Georgia,serif;font-size:2.2rem;font-weight:800;color:#fff;}
+.hstat span{font-size:.8rem;color:rgba(255,255,255,.5);letter-spacing:.05em;}
+
+/* DASHBOARD MOCKUP */
+.mockup-section{background:var(--dark2);padding:5rem 5%;overflow:hidden;}
+.mockup-label{text-align:center;font-size:.8rem;font-weight:600;letter-spacing:.1em;color:var(--green3);text-transform:uppercase;margin-bottom:.75rem;}
+.mockup-heading{text-align:center;font-family:'Fraunces',Georgia,serif;font-size:clamp(1.6rem,3vw,2.2rem);font-weight:800;color:#fff;margin-bottom:.75rem;}
+.mockup-sub{text-align:center;color:rgba(255,255,255,.5);margin-bottom:3rem;font-size:.95rem;}
+.screen-wrap{max-width:900px;margin:0 auto;background:#0a1510;border:1px solid #1e3d28;border-radius:16px;overflow:hidden;box-shadow:0 40px 80px rgba(0,0,0,.5);}
+.screen-bar{background:#0d1e15;padding:10px 16px;display:flex;align-items:center;gap:8px;border-bottom:1px solid #1e3d28;}
+.sdot{width:10px;height:10px;border-radius:50%;}
+.screen-url{background:#111e16;border-radius:6px;padding:4px 14px;font-size:11px;color:#4a7a5a;flex:1;text-align:center;margin:0 1rem;}
+.dash-body{padding:1.25rem;}
+.dash-toprow{display:flex;justify-content:space-between;align-items:center;margin-bottom:1rem;}
+.dash-company{font-family:'Fraunces',Georgia,serif;font-size:.85rem;font-weight:700;color:var(--green3);}
+.dash-live{display:flex;align-items:center;gap:5px;background:#0d2d1a;border:1px solid #1d5c30;border-radius:4px;padding:3px 9px;font-size:.65rem;color:var(--green3);}
+.ldot{width:5px;height:5px;border-radius:50%;background:var(--green3);animation:blink 1.5s infinite;}
+.dash-pills{display:flex;gap:.5rem;margin-bottom:1rem;flex-wrap:wrap;}
+.dpill{background:#0d1e15;border:1px solid #1e3d28;border-radius:4px;padding:3px 10px;font-size:.7rem;color:#aaa;}
+.dpill em{color:var(--gold);font-style:normal;font-weight:700;}
+.nz-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-bottom:1rem;}
+.nz{border-radius:7px;padding:8px 10px;}
+.nz.p{background:#0d2d1a;border:1px solid #1a5c30;}
+.nz.d{background:#1a2800;border:1px solid #3d5200;}
+.nz.h{background:#1a1535;border:1px solid #3d2e80;}
+.nz.off{background:#111;border:1px solid #222;}
+.nz-name{font-size:.65rem;font-weight:700;letter-spacing:.04em;margin-bottom:3px;}
+.p .nz-name{color:#5DCAA5;}.d .nz-name{color:#97C459;}.h .nz-name{color:#AFA9EC;}.off .nz-name{color:#444;}
+.nz-open{font-size:.6rem;color:#666;margin-bottom:2px;}
+.nz-amt{font-size:.85rem;font-weight:700;}
+.p .nz-amt{color:#9FE1CB;}.d .nz-amt{color:#C0DD97;}.h .nz-amt{color:#CECBF6;}.off .nz-amt{color:#333;}
+.nz-badge{display:inline-block;font-size:.55rem;padding:1px 6px;border-radius:2px;margin-top:2px;}
+.fill{background:#0d3d22;color:#5DCAA5;}.free{background:#1a2a10;color:#97C459;}.offl{background:#111;color:#444;}
+.sum-row{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-bottom:1rem;}
+.sbox{background:#0d1e15;border:1px solid #1e3d28;border-radius:6px;padding:8px 10px;}
+.sbox-l{font-size:.6rem;color:#555;margin-bottom:2px;}
+.sbox-v{font-size:.95rem;font-weight:700;}
+.sbox-v.gv{color:#1d9e75;}.sbox-v.av{color:#ef9f27;}.sbox-v.pv{color:#AFA9EC;}
+.tank-row{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-bottom:1rem;}
+.tbox{background:#0d1e15;border:1px solid #1e3d28;border-radius:6px;padding:8px 10px;}
+.tbox-n{font-size:.6rem;color:#888;margin-bottom:4px;}
+.tbar-bg{background:#0a1218;border-radius:2px;height:5px;margin-bottom:3px;}
+.tbar{height:5px;border-radius:2px;}
+.tp{background:#1d9e75;}.td{background:#639922;}.th{background:#7F77DD;}
+.tstat{font-size:.6rem;color:#888;}
+.tstat em{font-style:normal;font-weight:700;}
+.tp-em{color:#5DCAA5;}.td-em{color:#97C459;}.th-em{color:#CECBF6;}
+.price-strip{display:flex;gap:6px;border-top:1px solid #1e3d28;padding-top:10px;}
+.pchip{flex:1;background:#0d1e15;border:1px solid #1e3d28;border-radius:5px;padding:5px 8px;text-align:center;}
+.pchip-l{font-size:.55rem;color:#555;margin-bottom:2px;}
+.pchip-v{font-size:.75rem;font-weight:700;color:var(--gold);}
+.pchip-v.red{color:#e24b4a;}
+
+/* FEATURES */
+.features{padding:6rem 5%;background:var(--light);}
+.section-label{font-size:.78rem;font-weight:700;letter-spacing:.1em;color:var(--green2);text-transform:uppercase;margin-bottom:.6rem;}
+.section-title{font-family:'Fraunces',Georgia,serif;font-size:clamp(1.7rem,3vw,2.5rem);font-weight:800;color:var(--dark);line-height:1.2;max-width:520px;}
+.section-sub{color:var(--muted);margin-top:.75rem;max-width:480px;line-height:1.75;font-size:.95rem;}
+.feat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;margin-top:3.5rem;}
+.feat-card{background:var(--white);border:1px solid #dff0e6;border-radius:var(--radius);padding:2rem 1.75rem;position:relative;transition:transform .25s,box-shadow .25s;overflow:hidden;}
+.feat-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--green),var(--green2));opacity:0;transition:opacity .25s;}
+.feat-card:hover{transform:translateY(-5px);box-shadow:0 16px 40px rgba(15,110,86,.1);}
+.feat-card:hover::before{opacity:1;}
+.feat-icon{width:52px;height:52px;border-radius:12px;background:var(--green-pale);display:flex;align-items:center;justify-content:center;font-size:24px;margin-bottom:1.25rem;}
+.feat-card h3{font-family:'Fraunces',Georgia,serif;font-size:1.05rem;font-weight:700;margin-bottom:.6rem;color:var(--dark);}
+.feat-card p{color:var(--muted);font-size:.9rem;line-height:1.65;}
+.feat-tag{display:inline-block;background:var(--green-pale);color:var(--green);font-size:.72rem;font-weight:600;padding:3px 10px;border-radius:99px;margin-top:1rem;}
+
+/* HOW IT WORKS */
+.how{padding:6rem 5%;background:var(--white);}
+.how-inner{max-width:900px;margin:0 auto;}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:0;margin-top:3.5rem;position:relative;}
+.steps::before{content:'';position:absolute;top:28px;left:12%;right:12%;height:2px;background:linear-gradient(90deg,var(--green-pale),var(--green2),var(--green-pale));z-index:0;}
+.step{text-align:center;position:relative;z-index:1;padding:0 1rem;}
+.step-num{width:56px;height:56px;border-radius:50%;background:var(--green);color:#fff;font-family:'Fraunces',Georgia,serif;font-size:1.2rem;font-weight:800;display:flex;align-items:center;justify-content:center;margin:0 auto 1.25rem;box-shadow:0 4px 16px rgba(15,110,86,.3);}
+.step h4{font-family:'Fraunces',Georgia,serif;font-size:1rem;font-weight:700;margin-bottom:.5rem;color:var(--dark);}
+.step p{font-size:.85rem;color:var(--muted);line-height:1.6;}
+
+/* PRICING */
+.pricing{padding:6rem 5%;background:var(--light);}
+.pricing-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem;margin-top:3.5rem;max-width:900px;margin-left:auto;margin-right:auto;}
+.price-card{background:var(--white);border:1px solid #dff0e6;border-radius:var(--radius);padding:2.25rem 2rem;transition:transform .2s;}
+.price-card.featured{border:2px solid var(--green);position:relative;}
+.price-card:hover{transform:translateY(-4px);}
+.featured-badge{position:absolute;top:-14px;left:50%;transform:translateX(-50%);background:var(--green);color:#fff;font-size:.72rem;font-weight:700;padding:4px 16px;border-radius:99px;white-space:nowrap;letter-spacing:.04em;}
+.price-plan{font-size:.8rem;font-weight:700;letter-spacing:.08em;color:var(--muted);text-transform:uppercase;margin-bottom:.75rem;}
+.price-amt{font-family:'Fraunces',Georgia,serif;font-size:2.4rem;font-weight:800;color:var(--dark);margin-bottom:.25rem;}
+.price-amt small{font-size:1rem;font-weight:500;color:var(--muted);}
+.price-desc{font-size:.85rem;color:var(--muted);margin-bottom:1.5rem;padding-bottom:1.5rem;border-bottom:1px solid #edf4ef;}
+.price-list{list-style:none;display:flex;flex-direction:column;gap:.65rem;margin-bottom:1.75rem;}
+.price-list li{font-size:.875rem;color:var(--text);display:flex;align-items:flex-start;gap:.6rem;}
+.price-list li::before{content:'✓';color:var(--green);font-weight:700;flex-shrink:0;}
+.price-btn{display:block;text-align:center;padding:.8rem;border-radius:99px;text-decoration:none;font-weight:600;font-size:.9rem;transition:all .2s;}
+.price-btn.outline{border:1.5px solid var(--green);color:var(--green);}
+.price-btn.outline:hover{background:var(--green);color:#fff;}
+.price-btn.solid{background:var(--green);color:#fff;}
+.price-btn.solid:hover{background:var(--green2);}
+
+/* WHY */
+.why{background:var(--dark);padding:6rem 5%;text-align:center;}
+.why h2{font-family:'Fraunces',Georgia,serif;font-size:clamp(1.8rem,3vw,2.5rem);font-weight:800;color:#fff;margin-bottom:.75rem;}
+.why p{color:rgba(255,255,255,.5);max-width:480px;margin:0 auto 3.5rem;font-size:.95rem;}
+.why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1rem;max-width:800px;margin:0 auto;}
+.why-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:var(--radius);padding:2rem 1.25rem;}
+.why-num{font-family:'Fraunces',Georgia,serif;font-size:2.8rem;font-weight:800;color:var(--gold);margin-bottom:.4rem;}
+.why-card p{font-size:.85rem;color:rgba(255,255,255,.55);line-height:1.6;margin:0;}
+
+/* TESTIMONIALS */
+.testi{padding:6rem 5%;background:var(--white);}
+.testi-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;margin-top:3.5rem;}
+.testi-card{background:var(--light);border:1px solid #dff0e6;border-radius:var(--radius);padding:1.75rem;}
+.testi-stars{color:var(--gold);font-size:1rem;margin-bottom:.75rem;}
+.testi-text{font-size:.9rem;color:var(--text);line-height:1.7;margin-bottom:1.25rem;font-style:italic;}
+.testi-name{font-weight:700;font-size:.875rem;color:var(--dark);}
+.testi-loc{font-size:.78rem;color:var(--muted);}
+
+/* CONTACT */
+.contact{padding:6rem 5%;background:var(--light);}
+.contact-inner{max-width:700px;margin:0 auto;}
+.contact-box{background:var(--white);border:1px solid #dff0e6;border-radius:var(--radius);padding:3rem 2.5rem;margin-top:3rem;}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-bottom:2rem;}
+.citem{display:flex;gap:1rem;align-items:flex-start;}
+.cicon{width:46px;height:46px;border-radius:10px;background:var(--green-pale);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;}
+.clabel{font-size:.75rem;color:var(--muted);margin-bottom:3px;}
+.cval{font-weight:600;font-size:.95rem;color:var(--dark);}
+.cval a{color:var(--green);text-decoration:none;}
+.cta-box{background:var(--dark);border-radius:var(--radius-sm);padding:1.5rem 2rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;}
+.cta-box p{color:rgba(255,255,255,.7);font-size:.875rem;}
+.cta-box strong{display:block;font-family:'Fraunces',Georgia,serif;font-size:1.3rem;color:#fff;margin-top:2px;}
+.cta-box a{background:var(--gold);color:#1a0e00;padding:.75rem 1.75rem;border-radius:99px;text-decoration:none;font-weight:700;font-size:.9rem;white-space:nowrap;transition:transform .2s;}
+.cta-box a:hover{transform:scale(1.04);}
+
+/* FOOTER */
+footer{background:var(--dark);padding:3rem 5%;border-top:1px solid #1e3d28;}
+.footer-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1.5rem;}
+.footer-logo{font-family:'Fraunces',Georgia,serif;font-weight:800;font-size:1.2rem;color:#fff;}
+.footer-logo em{color:var(--gold);font-style:normal;}
+.footer-links{display:flex;gap:1.5rem;flex-wrap:wrap;}
+.footer-links a{color:rgba(255,255,255,.4);text-decoration:none;font-size:.85rem;transition:color .2s;}
+.footer-links a:hover{color:rgba(255,255,255,.8);}
+.footer-copy{color:rgba(255,255,255,.3);font-size:.8rem;width:100%;text-align:center;margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid #1e3d28;}
+
+@media(max-width:640px){
+  .nz-grid{grid-template-columns:repeat(2,1fr);}
+  .contact-grid{grid-template-columns:1fr;}
+  .steps::before{display:none;}
+  nav .nav-links{display:none;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="logo" href="#">Powers<em>soft</em>.pk</a>
+  <ul class="nav-links">
+    <li><a href="#features">Features</a></li>
+    <li><a href="#how">How It Works</a></li>
+    <li><a href="#pricing">Pricing</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a class="nav-cta" href="tel:03009698745">📞 Call Now</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-content">
+    <div class="hero-pill"><span></span>Pakistan ka No.1 Petrol Pump Software — Since 10+ Years</div>
+    <h1>Fuel Station Ka Pura<br>Control <em>Aapke Haath Mein</em></h1>
+    <p>Nozzle sales se tank gauging tak, shift closing se FBR compliance tak — Powersoft aapke petrol pump ko fully automated aur loss-proof banata hai. Ek software, pura solution.</p>
+    <div class="hero-btns">
+      <a class="btn-gold" href="#contact">Free Demo Book Karein</a>
+      <a class="btn-outline" href="tel:03009698745">0300-9698745</a>
+    </div>
+    <div class="hero-stats">
+      <div class="hstat"><strong>500+</strong><span>PETROL PUMPS</span></div>
+      <div class="hstat"><strong>15+</strong><span>YEARS EXPERIENCE</span></div>
+      <div class="hstat"><strong>100%</strong><span>SATISFACTION</span></div>
+      <div class="hstat"><strong>24/7</strong><span>SUPPORT</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- DASHBOARD MOCKUP -->
+<section class="mockup-section" id="software">
+  <div class="mockup-label">Live Software Preview</div>
+  <h2 class="mockup-heading">Real-Time Fuel Station Dashboard</h2>
+  <p class="mockup-sub">Yahi software aapke petrol pump par install hoga — live nozzle data, tank levels, aur shift closing ek jagah</p>
+  <div class="screen-wrap">
+    <div class="screen-bar">
+      <div class="sdot" style="background:#e24b4a"></div>
+      <div class="sdot" style="background:#ef9f27"></div>
+      <div class="sdot" style="background:#1d9e75"></div>
+      <div class="screen-url">app.Powerssoft.pk — Fuel Management System</div>
+    </div>
+    <div class="dash-body">
+      <div class="dash-toprow">
+        <div class="dash-company">AL HAMZA PETROLEUM — LAHORE</div>
+        <div class="dash-live"><div class="ldot"></div>LIVE</div>
+      </div>
+      <div class="dash-pills">
+        <div class="dpill">Shift: <em>Morning (06:00–14:00)</em></div>
+        <div class="dpill">Date: <em>29 Apr 2026</em></div>
+        <div class="dpill">Cashier: <em>Imran Ali</em></div>
+        <div class="dpill">Station: <em>PSO Authorized</em></div>
+      </div>
+      <div class="nz-grid">
+        <div class="nz p">
+          <div class="nz-name">PETROL — NZ 1</div>
+          <div class="nz-open">Opening: 84,210.40 L</div>
+          <div class="nz-amt">Rs 64,318</div>
+          <span class="nz-badge fill">● Filling</span>
+        </div>
+        <div class="nz p">
+          <div class="nz-name">PETROL — NZ 2</div>
+          <div class="nz-open">Opening: 72,105.00 L</div>
+          <div class="nz-amt">Rs 53,170</div>
+          <span class="nz-badge free">● Free</span>
+        </div>
+        <div class="nz d">
+          <div class="nz-name">DIESEL — NZ 3</div>
+          <div class="nz-open">Opening: 61,482.20 L</div>
+          <div class="nz-amt">Rs 81,481</div>
+          <span class="nz-badge fill">● Filling</span>
+        </div>
+        <div class="nz d">
+          <div class="nz-name">DIESEL — NZ 4</div>
+          <div class="nz-open">Opening: 49,300.50 L</div>
+          <div class="nz-amt">Rs 49,728</div>
+          <span class="nz-badge free">● Free</span>
+        </div>
+        <div class="nz h">
+          <div class="nz-name">HOBC — NZ 5</div>
+          <div class="nz-open">Opening: 30,200.00 L</div>
+          <div class="nz-amt">Rs 72,303</div>
+          <span class="nz-badge fill">● Filling</span>
+        </div>
+        <div class="nz off">
+          <div class="nz-name">HOBC — NZ 6</div>
+          <div class="nz-open">Opening: —</div>
+          <div class="nz-amt">— —</div>
+          <span class="nz-badge offl">● Off</span>
+        </div>
+      </div>
+      <div class="sum-row">
+        <div class="sbox"><div class="sbox-l">Total Sale (Shift)</div><div class="sbox-v gv">Rs 3,21,000</div></div>
+        <div class="sbox"><div class="sbox-l">Cash Collected</div><div class="sbox-v av">Rs 2,87,500</div></div>
+        <div class="sbox"><div class="sbox-l">Credit Accounts</div><div class="sbox-v pv">Rs 33,500</div></div>
+      </div>
+      <div class="tank-row">
+        <div class="tbox"><div class="tbox-n">Petrol Tank — 20,000 L</div><div class="tbar-bg"><div class="tbar tp" style="width:72%"></div></div><div class="tstat"><em class="tp-em">14,400 L</em> available · 72%</div></div>
+        <div class="tbox"><div class="tbox-n">Diesel Tank — 20,000 L</div><div class="tbar-bg"><div class="tbar td" style="width:54%"></div></div><div class="tstat"><em class="td-em">10,800 L</em> available · 54%</div></div>
+        <div class="tbox"><div class="tbox-n">HOBC Tank — 10,000 L</div><div class="tbar-bg"><div class="tbar th" style="width:41%"></div></div><div class="tstat"><em class="th-em">4,100 L</em> available · 41%</div></div>
+      </div>
+      <div class="price-strip">
+        <div class="pchip"><div class="pchip-l">Petrol / Ltr</div><div class="pchip-v">Rs 321.17</div></div>
+        <div class="pchip"><div class="pchip-l">Diesel / Ltr</div><div class="pchip-v">Rs 335.86</div></div>
+        <div class="pchip"><div class="pchip-l">HOBC / Ltr</div><div class="pchip-v">Rs 393.35</div></div>
+        <div class="pchip"><div class="pchip-l">Shift Status</div><div class="pchip-v red">OPEN</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="features" id="features">
+  <div class="section-label">Core Features</div>
+  <h2 class="section-title">Jo Features Aapka Pump<br>Profitable Banate Hain</h2>
+  <p class="section-sub">Har feature Pakistan ke petrol pump owners ki real problems solve karne ke liye banaya gaya — koi extra jhanjhat nahi, sirf results.</p>
+  <div class="feat-grid">
+    <div class="feat-card">
+      <div class="feat-icon">⛽</div>
+      <h3>Nozzle Sale — Live Tracking</h3>
+      <p>Har nozzle ki reading second-by-second monitor karein. Staff ka koi bhi hera pheri nazar nahi aayega — every liter, every rupee accountable.</p>
+      <span class="feat-tag">Real-Time</span>
+    </div>
+    <div class="feat-card">
+      <div class="feat-icon">🧾</div>
+      <h3>Automatic Sale Slip</h3>
+      <p>Har sale par print-ready receipt automatically generate hoti hai. Customer disputes khatam, accounts clean, aur professional image — sab ek saath.</p>
+      <span class="feat-tag">Auto-Generate</span>
+    </div>
+    <div class="feat-card">
+      <div class="feat-icon">🛢️</div>
+      <h3>Automatic Tank Gauging</h3>
+      <p>Petrol, Diesel, HOBC — teeno tanks ka live level apne screen par dekhen. Dip shortages automatically pakdi jayengi, koi manual measurement ki zaroorat nahi.</p>
+      <span class="feat-tag">Auto Tank Gauging</span>
+    </div>
+    <div class="feat-card">
+      <div class="feat-icon">💰</div>
+      <h3>Shift Close with Cash</h3>
+      <p>Shift khatam? Ek click mein poora hisaab — cash collected, credit outstanding, aur nozzle difference. Koi galti, koi ghalat fehmi nahi.</p>
+      <span class="feat-tag">Cashflow Control</span>
+    </div>
+    <div class="feat-card">
+      <div class="feat-icon">💲</div>
+      <h3>Online Price Change</h3>
+      <p>OGRA nai qeemat announce kare — aap second mein update karein. Rs 321.17 petrol, Rs 335.86 diesel, Rs 393.35 HOBC — sab dispensers par instantly.</p>
+      <span class="feat-tag">Instant Update</span>
+    </div>
+    <div class="feat-card">
+      <div class="feat-icon">📊</div>
+      <h3>Reports & FBR Compliance</h3>
+      <p>Daily P&L, monthly balance sheet, staff payroll, aur FBR-compliant digital invoicing — sab automated. Tax time par koi tension nahi.</p>
+      <span class="feat-tag">FBR Ready</span>
+    </div>
+    <div class="feat-card">
+      <div class="feat-icon">👥</div>
+      <h3>Staff & Shift Management</h3>
+      <p>Multiple shifts, alag alag cashiers — har kisi ka record bilkul clear. Biometric attendance, payroll processing, aur role-based access ek jagah.</p>
+      <span class="feat-tag">Multi-Shift</span>
+    </div>
+    <div class="feat-card">
+      <div class="feat-icon">📱</div>
+      <h3>Mobile Se Monitor Karein</h3>
+      <p>Ghar mein ho, bahar ho, ya safar mein — apne pump ka live dashboard mobile par dekhen. Android aur iOS dono par perfectly kaam karta hai.</p>
+      <span class="feat-tag">Mobile App</span>
+    </div>
+    <div class="feat-card">
+      <div class="feat-icon">🔧</div>
+      <h3>Har Dispenser Ke Saath Compatible</h3>
+      <p>Power Engineering Services ka 15+ saal ka hardware experience — single nozzle se lekar 12-nozzle multi-dispenser stations tak, sab supported.</p>
+      <span class="feat-tag">All Dispensers</span>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section class="how" id="how">
+  <div class="how-inner">
+    <div class="section-label">Simple Process</div>
+    <h2 class="section-title">Sirf 4 Steps Mein<br>Aapka Pump Automated</h2>
+    <p class="section-sub">Installation se lekar go-live tak — hamare experts sab handle karte hain. Aapko sirf apna business chalana hai.</p>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <h4>Free Demo Book Karein</h4>
+        <p>0300-9698745 par call ya WhatsApp karein. Hamare expert aapke pump par aake free demo denge — koi charge nahi.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <h4>Hardware Installation</h4>
+        <p>Hamare certified technicians aapke dispensers ko Powersoft se connect karenge. All brands aur types supported.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <h4>Staff Training</h4>
+        <p>Cashiers aur managers ko Urdu mein step-by-step training di jaegi. Simple interface — koi technical knowledge nahi chahiye.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <h4>Go Live + Support</h4>
+        <p>Aapka pump fully live aur automated. 24/7 support hamari team ka — koi bhi masla, hum hain aapke saath.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing" id="pricing">
+  <div style="text-align:center;">
+    <div class="section-label" style="display:inline-block;">Packages</div>
+    <h2 class="section-title" style="margin:0 auto;text-align:center;max-width:100%;">Apne Business Ke Mutabiq Package Chunein</h2>
+    <p class="section-sub" style="margin:0.75rem auto 0;text-align:center;max-width:100%;">Sab packages mein free installation aur training shamil hai</p>
+  </div>
+  <div class="pricing-grid">
+    <div class="price-card">
+      <div class="price-plan">Basic</div>
+      <div class="price-amt">Contact <small>karein</small></div>
+      <p class="price-desc">Single-pump stations ke liye — choti jagah, bari efficiency</p>
+      <ul class="price-list">
+        <li>Nozzle sale tracking (up to 4 nozzles)</li>
+        <li>Daily sale slip generation</li>
+        <li>Shift open/close with cash</li>
+        <li>Basic daily reports</li>
+        <li>WhatsApp support</li>
+      </ul>
+      <a class="price-btn outline" href="tel:03009698745">Qeemat Poochein</a>
+    </div>
+    <div class="price-card featured">
+      <div class="featured-badge">⭐ Most Popular</div>
+      <div class="price-plan">Professional</div>
+      <div class="price-amt">Contact <small>karein</small></div>
+      <p class="price-desc">Medium stations ke liye — pura control, pura hisaab</p>
+      <ul class="price-list">
+        <li>All nozzles — unlimited</li>
+        <li>Tank gauging system</li>
+        <li>Online price change</li>
+        <li>Credit account management</li>
+        <li>FBR-compliant digital invoicing</li>
+        <li>Staff & payroll module</li>
+        <li>Mobile app access</li>
+        <li>24/7 dedicated support</li>
+      </ul>
+      <a class="price-btn solid" href="tel:03009698745">Free Demo Len</a>
+    </div>
+    <div class="price-card">
+      <div class="price-plan">Enterprise</div>
+      <div class="price-amt">Custom</div>
+      <p class="price-desc">Multi-branch pumps ke liye — centralized management</p>
+      <ul class="price-list">
+        <li>Multiple branches — one dashboard</li>
+        <li>Centralized reporting & P&L</li>
+        <li>Custom hardware integration</li>
+        <li>Bulk credit billing</li>
+        <li>On-site dedicated support</li>
+        <li>Custom feature development</li>
+      </ul>
+      <a class="price-btn outline" href="tel:03009698745">Baat Karein</a>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section class="why">
+  <div class="section-label" style="color:var(--green3);">Why Powersoft</div>
+  <h2>Pakistan Ke Pump Owners<br>Ka Bharosa — Proven Results</h2>
+  <p>Sirf software nahi — ek complete fuel station management partner jo aapke saath hai</p>
+  <div class="why-grid">
+    <div class="why-card"><div class="why-num">500+</div><p>Active petrol pumps Pakistan bhar mein Powersoft par chal rahe hain, roz</p></div>
+    <div class="why-card"><div class="why-num">15+</div><p>Saal ka proven experience Pakistan ke fuel station industry mein</p></div>
+    <div class="why-card"><div class="why-num">24/7</div><p>Round-the-clock technical support — din ho ya raat, hum hain haazir</p></div>
+    <div class="why-card"><div class="why-num">100%</div><p>Satisfaction guaranteed on every installation — ya paise wapas</p></div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testi">
+  <div class="section-label">Client Reviews</div>
+  <h2 class="section-title">Asal Pump Owners, Asal Nataij</h2>
+  <div class="testi-grid">
+    <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-text">"Powersoft se pehle roz raat ko hisaab mein ghante lagte thay aur phir bhi galtiyan hoti theen. Ab shift close 5 minute mein hoti hai — bilkul accurate. Hamare fuel losses bhi band ho gaye."</p>
+      <div class="testi-name">Muhammad Tariq</div>
+      <div class="testi-loc">Al Hamza Petroleum, Lahore</div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-text">"Tank gauging ne game change kar diya. Pehle attendant dip lete thay aur result galat hota tha. Ab live reading screen par hai — 40% fuel loss kam hua sirf pehle mahine mein."</p>
+      <div class="testi-name">Haji Naseer Ahmed</div>
+      <div class="testi-loc">Naseer Petroleum, Faisalabad</div>
+    </div>
+    <div class="testi-card">
+      <div class="testi-stars">★★★★★</div>
+      <p class="testi-text">"Jo cheez sabse zyada pasand hai woh hai support. Raat ko 11 baje bhi call karein — koi na koi jawab deta hai. Power Engineering Services par 100% trust hai. Recommend karta hoon sab ko."</p>
+      <div class="testi-name">Zafar Iqbal</div>
+      <div class="testi-loc">Zafar Oil Services, Rawalpindi</div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="contact-inner">
+    <div class="section-label">Get In Touch</div>
+    <h2 class="section-title">Aaj Hi Baat Karein —<br>Demo Bilkul Free Hai</h2>
+    <p class="section-sub">Koi sawaal ho, demo chahiye, ya quote lena ho — ek call mein sab kuch arrange ho jaata hai</p>
+    <div class="contact-box">
+      <div class="contact-grid">
+        <div class="citem">
+          <div class="cicon">📞</div>
+          <div><div class="clabel">Phone / WhatsApp</div><div class="cval"><a href="tel:03009698745">0300-9698745</a></div></div>
+        </div>
+        <div class="citem">
+          <div class="cicon">🌐</div>
+          <div><div class="clabel">Website</div><div class="cval"><a href="http://www.Powerssoft.pk" target="_blank">www.Powerssoft.pk</a></div></div>
+        </div>
+        <div class="citem">
+          <div class="cicon">🏢</div>
+          <div><div class="clabel">Company</div><div class="cval">Power Engineering Services</div></div>
+        </div>
+        <div class="citem">
+          <div class="cicon">📍</div>
+          <div><div class="clabel">Location</div><div class="cval">Pakistan (Nationwide Service)</div></div>
+        </div>
+      </div>
+      <div class="cta-box">
+        <div>
+          <p>Abhi call karein — Free demo aapke pump par</p>
+          <strong>0300-9698745</strong>
+        </div>
+        <a href="tel:03009698745">📞 Call Now</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">Powers<em>soft</em>.pk</div>
+    <div class="footer-links">
+      <a href="#features">Features</a>
+      <a href="#how">How It Works</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#contact">Contact</a>
+      <a href="http://www.Powerssoft.pk">Website</a>
+    </div>
+  </div>
+  <div class="footer-copy">
+    © 2026 Powerssoft.pk — Power Engineering Services, Pakistan. All rights reserved.<br>
+    Pakistan's most trusted petrol pump software solution • 0300-9698745
+  </div>
+</footer>
+
+</body>
+</html>
